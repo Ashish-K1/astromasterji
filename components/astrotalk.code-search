@@ -1,0 +1,55 @@
+# Query: astrotalk
+
+24 results - 14 files
+
+app/layout.tsx:
+  12:   title: "Astrotalk - Personalized Astrology Solutions",
+
+app/page.tsx:
+  162:               <h2 className="text-3xl font-bold mb-4">Download the Astromasterji App</h2>
+  190:                 alt="Astrotalk Mobile App"
+
+app/chat-with-astrologer/page.tsx:
+  311:         <h2 className="text-xl font-bold mb-4">Why Choose Astromasterji for Chat Consultation?</h2>
+
+components/complimentary-services.tsx:
+  18:         "Generate your free online kundli report from Astromasterji. Our Kundli software can help you predict the future for yourself by reading the birth chart.",
+
+components/footer.tsx:
+    9:             <h3 className="text-lg font-bold mb-4">About Astromasterji</h3>
+   11:               Astrotalk is India's leading platform for astrology consultations, providing personalized solutions from
+  126:           <p>© {new Date().getFullYear()} Astromasterji. All rights reserved.</p>
+
+components/header.tsx:
+  19:               <Image src="/logo.png" alt="Astrotalk Logo" fill className="object-contain" />
+  21:             <span className="text-xl font-bold">Astromasterji</span>
+  90:             Astrotalk Store
+
+components/hero-section.tsx:
+  61:                 200+ Celebs recommend Astromasterji
+
+src/index.tsx:
+  13:       <ThemeProvider defaultTheme="light" storageKey="astrotalk-theme">
+
+src/components/complimentary-services.tsx:
+  18:         "Generate your free online kundli report from Astromasterji. Our Kundli software can help you predict the future for yourself by reading the birth chart.",
+
+src/components/footer.tsx:
+    9:             <h3 className="text-lg font-bold mb-4">About Astromasterji</h3>
+   11:               Astrotalk is India's leading platform for astrology consultations, providing personalized solutions from
+   68:               <li className="text-gray-300">Email: support@astromasterji.com</li>
+  126:           <p>© {new Date().getFullYear()} Astromasterji. All rights reserved.</p>
+
+src/components/header.tsx:
+  18:               <img src="/logo.png" alt="Astromasterji Log
+  90:             Astrotalk Store
+
+src/components/hero-section.tsx:
+  54:                 200+ Celebs recommend Astromasterji
+
+src/pages/ChatWithAstrologer.tsx:
+  304:         <h2 className="text-xl font-bold mb-4">Why Choose Astromasterji for Chat Consultation?</h2>
+
+src/pages/HomePage.tsx:
+  161:               <h2 className="text-3xl font-bold mb-4">Download the Astromasterji App</h2>
+  175:               <img src="https://via.placeholder.com/250x500" alt="Astromasterji Mobile App" className="mx-auto" />
