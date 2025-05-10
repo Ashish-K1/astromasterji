@@ -2,11 +2,14 @@
   "name": "astromasterji",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Ashish-K1.github.io/astromasterji",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "start": "vite preview",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -44,6 +47,7 @@
     "cmdk": "1.0.4",
     "date-fns": "^3.0.0",
     "embla-carousel-react": "8.5.1",
+    "gh-pages": "^6.3.0",
     "input-otp": "1.4.1",
     "jiti": "latest",
     "less": "latest",
