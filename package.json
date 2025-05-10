@@ -2,14 +2,14 @@
   "name": "astromasterji",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Ashish-K1.github.io/astromasterji",
+  "homepage": "https://ashish-k1.github.io/astromasterji/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "start": "vite preview",
     "lint": "eslint .",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
