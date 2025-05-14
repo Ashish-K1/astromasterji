@@ -15,7 +15,7 @@ export default function Header() {
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-2">
             <div className="relative h-8 w-8">
-              <img src="/logo.png" alt="Astromasterji Log
+              <img src="/astromasterji/logo.png" alt="Astromasterji Log
               o" className="h-full w-full object-contain" />
             </div>
             <span className="text-xl font-bold">AstroMasterji</span>

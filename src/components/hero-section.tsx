@@ -52,7 +52,7 @@ export default function HeroSection() {
           </div>
           <div className="md:w-1/2 flex justify-center">
             <div className="relative w-full max-w-md">
-              <img src="/bannerImage.png" alt="Astrologer" className="rounded-lg w-full h-auto" />
+              <img src="/astromasterji/bannerImage.png" alt="Astrologer" className="rounded-lg w-full h-auto" />
             </div>
           </div>
         </div>
