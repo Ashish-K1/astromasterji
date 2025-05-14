@@ -10,7 +10,7 @@ export default function ChatWithAstrologer() {
     {
       id: 1,
       name: "Acharya Vikram",
-      image: "https://via.placeholder.com/100x100",
+      image: "https://anamolyogi.com/assets/images/new/user.webp",
       specialties: ["Vedic", "Numerology"],
       experience: "15 years",
       languages: ["Hindi", "English"],
@@ -23,7 +23,7 @@ export default function ChatWithAstrologer() {
     {
       id: 2,
       name: "Sunita Sharma",
-      image: "https://via.placeholder.com/100x100",
+      image: "https://anamolyogi.com/assets/images/new/user.webp",
       specialties: ["Tarot", "Palmistry"],
       experience: "10 years",
       languages: ["Hindi", "English", "Punjabi"],
@@ -36,7 +36,7 @@ export default function ChatWithAstrologer() {
     {
       id: 3,
       name: "Dr. Rajesh Joshi",
-      image: "https://via.placeholder.com/100x100",
+      image: "https://anamolyogi.com/assets/images/new/user.webp",
       specialties: ["Vastu", "KP Astrology"],
       experience: "20 years",
       languages: ["Hindi", "English", "Marathi"],
@@ -49,7 +49,7 @@ export default function ChatWithAstrologer() {
     {
       id: 4,
       name: "Meena Gupta",
-      image: "https://via.placeholder.com/100x100",
+      image: "https://anamolyogi.com/assets/images/new/user.webp",
       specialties: ["Tarot", "Numerology"],
       experience: "12 years",
       languages: ["Hindi", "English"],
@@ -62,7 +62,7 @@ export default function ChatWithAstrologer() {
     {
       id: 5,
       name: "Pandit Sharma",
-      image: "https://via.placeholder.com/100x100",
+      image: "https://anamolyogi.com/assets/images/new/user.webp",
       specialties: ["Vedic", "Vastu"],
       experience: "25 years",
       languages: ["Hindi", "English", "Gujarati"],

@@ -15,7 +15,7 @@ export default function HomePage() {
       {/* Service Categories */}
       <section className="py-8 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <ServiceCard
               icon={<MessageCircle className="h-8 w-8 text-pink-500" />}
               title="Chat with Astrologer"
@@ -31,15 +31,8 @@ export default function HomePage() {
               iconBgColor="bg-teal-100"
             />
             <ServiceCard
-              icon={<ShoppingCart className="h-8 w-8 text-blue-500" />}
-              title="Astromall Sho232p"
-              href="/astromall"
-              bgColor="bg-white"
-              iconBgColor="bg-blue-100"
-            />
-            <ServiceCard
               icon={<Flame className="h-8 w-8 text-orange-500" />}
-              title="Book A Pooja"
+              title="Book A Pooja / Havan"
               href="/book-a-pooja"
               bgColor="bg-white"
               iconBgColor="bg-orange-100"
@@ -52,15 +45,15 @@ export default function HomePage() {
       <ComplimentaryServices />
 
       {/* Featured Astrologers */}
-      <FeaturedAstrologers />
+      {/* <FeaturedAstrologers /> */}
 
       {/* Testimonials */}
-      <TestimonialSection />
+      {/* <TestimonialSection /> */}
 
       {/* Why Choose Us */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Astrot?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Astromasterji?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card>
               <CardContent className="pt-6">
@@ -154,7 +147,7 @@ export default function HomePage() {
       </section>
 
       {/* Download App */}
-      <section className="py-16 bg-yellow-50">
+      {/* <section className="py-16 bg-yellow-50">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-1/2 mb-8 md:mb-0">
@@ -176,7 +169,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }

@@ -51,8 +51,8 @@ export default function HeroSection() {
           <div className="md:w-1/2 flex justify-center">
             <div className="relative w-full max-w-md">
               <img
-                src="/placeholder.svg?height=400&width=400"
-                alt="Astrologer"
+                src="/bannerImage.png"
+                alt="Astrologer11"
                 width={400}
                 height={400}
                 className="rounded-lg"

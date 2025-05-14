@@ -23,65 +23,30 @@ export default function Header() {
         </div>
 
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/free-kundli" className="text-sm font-medium">
+          {/* <Link to="/free-kundli" className="text-sm font-medium">
             Free Kundli
+          </Link> */}
+          <Link to="/about-us" className="text-sm font-medium">
+            About Us
           </Link>
-          <Link to="/compatibility-match" className="text-sm font-medium">
-            Compatibility match
-          </Link>
-          <Link to="/kundli-matching" className="text-sm font-medium">
+          <Link to="/kundali-matching" className="text-sm font-medium">
             Kundli Matching
           </Link>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="gap-1 p-1">
-                Horoscopes
-                <ChevronDown className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem>
-                <Link to="/daily-horoscope" className="w-full">
-                  Daily Horoscope
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link to="/weekly-horoscope" className="w-full">
-                  Weekly Horoscope
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link to="/monthly-horoscope" className="w-full">
-                  Monthly Horoscope
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          {/* <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="gap-1 p-1">
-                {language}
-                <ChevronDown className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => setLanguage("Eng")}>English</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setLanguage("हिं")}>Hindi</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu> */}
-          <Button className="bg-yellow-400 hover:bg-yellow-500 text-black">Login</Button>
+          <Link to="/horoscope" className="text-sm font-medium">
+            Horoscope
+          </Link>
+          {/* <Button className="bg-yellow-400 hover:bg-yellow-500 text-black">Login</Button> */}
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
           <Link to="/chat-with-astrologer" className="text-sm font-medium">
             Chat with Astrologer
           </Link>
-          <Link to="/talk-to-astrologer" className="text-sm font-medium">
+          {/* <Link to="/talk-to-astrologer" className="text-sm font-medium">
             Talk to Astrologer
-          </Link>
+          </Link> */}
           <Link to="/book-a-pooja" className="text-sm font-medium relative">
-            Book a Pooja
-            <span className="absolute -top-2 -right-8 bg-yellow-400 text-[10px] px-1 rounded-sm">NEW</span>
+            Book a Pooja / Havan
           </Link>
           {/* <Link to="/astromall" className="text-sm font-medium">
             Astromall

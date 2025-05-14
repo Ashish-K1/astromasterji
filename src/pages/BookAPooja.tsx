@@ -10,7 +10,7 @@ export default function BookAPooja() {
     {
       id: 1,
       name: "Ganesh Puja",
-      image: "https://via.placeholder.com/300x200",
+      image: "https://media.istockphoto.com/id/1682554058/photo/woman-lighting-a-brass-diya-kept-on-a-religious-pooja-thali-for-ganesh-chaturthi.jpg?s=612x612&w=0&k=20&c=OkMdDLU9GV2Rnoc6HFA3t_SQOvT41N3abK88of_2Xf0=",
       description: "Invoke the blessings of Lord Ganesha to remove obstacles from your life.",
       duration: "2 hours",
       price: "₹2,100",
@@ -21,7 +21,7 @@ export default function BookAPooja() {
     {
       id: 2,
       name: "Navgraha Shanti Puja",
-      image: "https://via.placeholder.com/300x200",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVAeAlq4IC01D4BGPflX7JN4tDAhlJI-TmfA&s",
       description: "Balance the influence of the nine planets in your life with this powerful ritual.",
       duration: "3 hours",
       price: "₹3,500",
@@ -32,7 +32,7 @@ export default function BookAPooja() {
     {
       id: 3,
       name: "Lakshmi Puja",
-      image: "https://via.placeholder.com/300x200",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRy8LIJOH4tl4RJRfDzwkVaBKudwGsB5Oojg&s",
       description: "Attract wealth and prosperity with this sacred ritual dedicated to Goddess Lakshmi.",
       duration: "2.5 hours",
       price: "₹2,800",
@@ -43,7 +43,7 @@ export default function BookAPooja() {
     {
       id: 4,
       name: "Rudra Abhishek",
-      image: "https://via.placeholder.com/300x200",
+      image: "https://sanity-admin.rudraksha-ratna.com/static/images/blogs/Rudra+Abhishek+4.jpg",
       description: "Powerful ritual to please Lord Shiva and seek his divine blessings.",
       duration: "4 hours",
       price: "₹4,100",
@@ -54,7 +54,7 @@ export default function BookAPooja() {
     {
       id: 5,
       name: "Satyanarayan Puja",
-      image: "https://via.placeholder.com/300x200",
+      image: "https://i0.wp.com/www.smartpuja.com/blog/wp-content/uploads/2022/11/smartpuja-24.jpg?resize=512%2C288&ssl=1",
       description: "A ritual to express gratitude to Lord Vishnu and seek his blessings for prosperity.",
       duration: "3 hours",
       price: "₹2,500",
@@ -66,7 +66,7 @@ export default function BookAPooja() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Book a Pooja</h1>
+      <h1 className="text-3xl font-bold mb-6">Book a Pooja / Havan</h1>
 
       <div className="bg-yellow-50 p-6 rounded-lg mb-8">
         <div className="flex flex-col md:flex-row items-center">
@@ -135,7 +135,7 @@ export default function BookAPooja() {
             <Button className="bg-yellow-400 hover:bg-yellow-500 text-black">Book a Custom Pooja</Button>
           </div>
           <div className="md:w-1/3">
-            <img src="https://via.placeholder.com/250x250" alt="Pooja Ritual" className="rounded-lg w-full h-auto" />
+            <img src="https://as1.ftcdn.net/jpg/03/11/83/88/1000_F_311838869_o3SGE0d0Uec6WxEbmyhIp7IsIHaajuzN.jpg" alt="Pooja Ritual" className="rounded-lg w-full h-auto" />
           </div>
         </div>
       </div>

@@ -54,12 +54,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/book-a-pooja" className="text-gray-300 hover:text-white">
-                  Book a Pooja
-                </Link>
-              </li>
-              <li>
-                <Link href="/free-kundli" className="text-gray-300 hover:text-white">
-                  Free Kundli
+                  Book a Pooja / Havan
                 </Link>
               </li>
             </ul>

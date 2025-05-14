@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 
@@ -15,9 +16,11 @@ export default function HeroSection() {
                 Connect with verified astrologers for guidance on career, relationships, and more.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                <Button className="bg-black hover:bg-gray-800 text-white">Talk to an Astrologer Now</Button>
+                <Button className="bg-black hover:bg-gray-800 text-white"><Link to="talk-to-astrologer">Talk to an Astrologer Now</Link></Button>
                 <Button variant="outline" className="bg-white hover:bg-gray-100">
-                  Book a Puja/Havan
+                  <Link to="book-a-pooja">
+                   Book a Puja/Havan
+                  </Link>
                 </Button>
               </div>
               <div className="relative max-w-md">
@@ -26,7 +29,7 @@ export default function HeroSection() {
                   Search
                 </Button>
               </div>
-              <div className="mt-6">
+              {/* <div className="mt-6">
                 <p className="text-sm font-medium">Trusted by 10,000+ Satisfied Users</p>
                 <div className="flex items-center mt-2">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -44,15 +47,12 @@ export default function HeroSection() {
                   ))}
                   <span className="ml-2 text-sm font-medium">4.8/5 (2,500+ reviews)</span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="md:w-1/2 flex justify-center">
             <div className="relative w-full max-w-md">
-              <img src="https://via.placeholder.com/400x400" alt="Astrologer" className="rounded-lg w-full h-auto" />
-              <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-medium">
-                200+ Celebs recommend Astromasterji
-              </div>
+              <img src="/bannerImage.png" alt="Astrologer" className="rounded-lg w-full h-auto" />
             </div>
           </div>
         </div>
