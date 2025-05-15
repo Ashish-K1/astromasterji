@@ -4,74 +4,77 @@ import { Card, CardContent } from "../components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
 import { Star, MessageCircle, Search, Filter } from "lucide-react"
+import { Link } from "react-router-dom"
 
 export default function ChatWithAstrologer() {
+  const phoneNumber = '9540696768'; // Replace with your number
+  const message = 'Hello! I have a query regarding your astrology services. Can you please help me?';
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
   const astrologers = [
     {
       id: 1,
-      name: "Acharya Vikram",
+      name: "Priyanka Jha",
       image: "https://anamolyogi.com/assets/images/new/user.webp",
       specialties: ["Vedic", "Numerology"],
       experience: "15 years",
       languages: ["Hindi", "English"],
-      rating: 4.9,
       reviews: 1250,
       price: "₹40/min",
       status: "Online",
       waitTime: "5 min",
     },
-    {
-      id: 2,
-      name: "Sunita Sharma",
-      image: "https://anamolyogi.com/assets/images/new/user.webp",
-      specialties: ["Tarot", "Palmistry"],
-      experience: "10 years",
-      languages: ["Hindi", "English", "Punjabi"],
-      rating: 4.8,
-      reviews: 980,
-      price: "₹35/min",
-      status: "Online",
-      waitTime: "10 min",
-    },
-    {
-      id: 3,
-      name: "Dr. Rajesh Joshi",
-      image: "https://anamolyogi.com/assets/images/new/user.webp",
-      specialties: ["Vastu", "KP Astrology"],
-      experience: "20 years",
-      languages: ["Hindi", "English", "Marathi"],
-      rating: 4.9,
-      reviews: 1560,
-      price: "₹45/min",
-      status: "Online",
-      waitTime: "2 min",
-    },
-    {
-      id: 4,
-      name: "Meena Gupta",
-      image: "https://anamolyogi.com/assets/images/new/user.webp",
-      specialties: ["Tarot", "Numerology"],
-      experience: "12 years",
-      languages: ["Hindi", "English"],
-      rating: 4.7,
-      reviews: 890,
-      price: "₹38/min",
-      status: "Online",
-      waitTime: "8 min",
-    },
-    {
-      id: 5,
-      name: "Pandit Sharma",
-      image: "https://anamolyogi.com/assets/images/new/user.webp",
-      specialties: ["Vedic", "Vastu"],
-      experience: "25 years",
-      languages: ["Hindi", "English", "Gujarati"],
-      rating: 4.9,
-      reviews: 2100,
-      price: "₹50/min",
-      status: "Busy",
-      waitTime: "30 min",
-    },
+    // {
+    //   id: 2,
+    //   name: "Sunita Sharma",
+    //   image: "https://anamolyogi.com/assets/images/new/user.webp",
+    //   specialties: ["Tarot", "Palmistry"],
+    //   experience: "10 years",
+    //   languages: ["Hindi", "English", "Punjabi"],
+    //   rating: 4.8,
+    //   reviews: 980,
+    //   price: "₹35/min",
+    //   status: "Online",
+    //   waitTime: "10 min",
+    // },
+    // {
+    //   id: 3,
+    //   name: "Dr. Rajesh Joshi",
+    //   image: "https://anamolyogi.com/assets/images/new/user.webp",
+    //   specialties: ["Vastu", "KP Astrology"],
+    //   experience: "20 years",
+    //   languages: ["Hindi", "English", "Marathi"],
+    //   rating: 4.9,
+    //   reviews: 1560,
+    //   price: "₹45/min",
+    //   status: "Online",
+    //   waitTime: "2 min",
+    // },
+    // {
+    //   id: 4,
+    //   name: "Meena Gupta",
+    //   image: "https://anamolyogi.com/assets/images/new/user.webp",
+    //   specialties: ["Tarot", "Numerology"],
+    //   experience: "12 years",
+    //   languages: ["Hindi", "English"],
+    //   rating: 4.7,
+    //   reviews: 890,
+    //   price: "₹38/min",
+    //   status: "Online",
+    //   waitTime: "8 min",
+    // },
+    // {
+    //   id: 5,
+    //   name: "Pandit Sharma",
+    //   image: "https://anamolyogi.com/assets/images/new/user.webp",
+    //   specialties: ["Vedic", "Vastu"],
+    //   experience: "25 years",
+    //   languages: ["Hindi", "English", "Gujarati"],
+    //   rating: 4.9,
+    //   reviews: 2100,
+    //   price: "₹50/min",
+    //   status: "Busy",
+    //   waitTime: "30 min",
+    // },
   ]
 
   return (
@@ -116,12 +119,12 @@ export default function ChatWithAstrologer() {
         </div>
 
         <Tabs defaultValue="online">
-          <TabsList className="mb-6">
+          {/* <TabsList className="mb-6">
             <TabsTrigger value="online">Online</TabsTrigger>
             <TabsTrigger value="busy">Busy</TabsTrigger>
             <TabsTrigger value="offline">Offline</TabsTrigger>
             <TabsTrigger value="all">All</TabsTrigger>
-          </TabsList>
+          </TabsList> */}
 
           <TabsContent value="online" className="mt-0">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -154,10 +157,10 @@ export default function ChatWithAstrologer() {
                             <p className="text-sm text-gray-600">Experience: {astrologer.experience}</p>
                             <p className="text-sm text-gray-600">Languages: {astrologer.languages.join(", ")}</p>
                             <div className="flex items-center mt-1">
-                              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                              <span className="text-sm font-medium ml-1">
-                                {astrologer.rating} ({astrologer.reviews})
-                              </span>
+                              {/* <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" /> */}
+                              {/* <span className="text-sm font-medium ml-1">
+                                {astrologer?.rating} ({astrologer.reviews})
+                              </span> */}
                             </div>
                             <div className="flex justify-between items-center mt-1">
                               <p className="text-sm font-medium text-green-600">{astrologer.price}</p>
@@ -166,10 +169,12 @@ export default function ChatWithAstrologer() {
                           </div>
                         </div>
                       </div>
+                      <Link to={`${whatsappUrl}`} target='_blank'>
                       <Button className="w-full rounded-none h-12 bg-yellow-400 hover:bg-yellow-500 text-black flex items-center justify-center gap-2">
                         <MessageCircle className="h-4 w-4" />
                         <span>Chat Now</span>
                       </Button>
+                      </Link>
                     </CardContent>
                   </Card>
                 ))}
@@ -208,10 +213,10 @@ export default function ChatWithAstrologer() {
                             <p className="text-sm text-gray-600">Experience: {astrologer.experience}</p>
                             <p className="text-sm text-gray-600">Languages: {astrologer.languages.join(", ")}</p>
                             <div className="flex items-center mt-1">
-                              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                              {/* <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                               <span className="text-sm font-medium ml-1">
                                 {astrologer.rating} ({astrologer.reviews})
-                              </span>
+                              </span> */}
                             </div>
                             <div className="flex justify-between items-center mt-1">
                               <p className="text-sm font-medium text-green-600">{astrologer.price}</p>
@@ -270,10 +275,10 @@ export default function ChatWithAstrologer() {
                           <p className="text-sm text-gray-600">Experience: {astrologer.experience}</p>
                           <p className="text-sm text-gray-600">Languages: {astrologer.languages.join(", ")}</p>
                           <div className="flex items-center mt-1">
-                            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                            {/* <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                             <span className="text-sm font-medium ml-1">
                               {astrologer.rating} ({astrologer.reviews})
-                            </span>
+                            </span> */}
                           </div>
                           <div className="flex justify-between items-center mt-1">
                             <p className="text-sm font-medium text-green-600">{astrologer.price}</p>

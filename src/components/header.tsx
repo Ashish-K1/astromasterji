@@ -14,11 +14,15 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-2">
-            <div className="relative h-8 w-8">
+            <div className="relative">
               <img src="/astromasterji/logo.png" alt="Astromasterji Log
-              o" className="h-full w-full object-contain" />
+              o" className="h-12 w-12 object-contain" />
             </div>
-            <span className="text-xl font-bold">AstroMasterji</span>
+            <div className="flex flex-col">
+               <span className="text-xl font-sanSerrif font-bold">AstroMasterji</span>
+               <span className="text-xs font-sanSerrif  font-medium">Your Path to Success</span>
+            </div>
+            
           </Link>
         </div>
 
@@ -26,27 +30,33 @@ export default function Header() {
           {/* <Link to="/free-kundli" className="text-sm font-medium">
             Free Kundli
           </Link> */}
-          <Link to="/about-us" className="text-sm font-medium">
+          <Link to="/about-us" className="text-sm font-medium font-sanSerrif">
             About Us
           </Link>
-          <Link to="/kundali-matching" className="text-sm font-medium">
+          <Link to="/kundali-matching" className="text-sm font-medium font-sanSerrif">
             Kundli Matching
           </Link>
-          <Link to="/horoscope" className="text-sm font-medium">
+          <Link to="/horoscope" className="text-sm font-medium font-sanSerrif">
             Horoscope
+          </Link>
+          <Link to="/compatibility-match" className="text-sm font-medium font-sanSerrif">
+          Compatibility Match
+          </Link>
+          <Link to="/vastu-consultation" className="text-sm font-medium font-sanSerrif">
+          Vastu
           </Link>
           {/* <Button className="bg-yellow-400 hover:bg-yellow-500 text-black">Login</Button> */}
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <Link to="/chat-with-astrologer" className="text-sm font-medium">
+          <Link to="/chat-with-astrologer" className="text-sm font-medium font-sanSerrif">
             Chat with Astrologer
           </Link>
           {/* <Link to="/talk-to-astrologer" className="text-sm font-medium">
             Talk to Astrologer
           </Link> */}
-          <Link to="/book-a-pooja" className="text-sm font-medium relative">
-            Book a Pooja / Havan
+          <Link to="/book-a-pooja" className="text-sm font-medium relative font-sanSerrif">
+          Vastu Consultation
           </Link>
           {/* <Link to="/astromall" className="text-sm font-medium">
             Astromall

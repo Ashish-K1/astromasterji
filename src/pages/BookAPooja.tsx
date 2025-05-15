@@ -66,7 +66,7 @@ export default function BookAPooja() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Book a Pooja / Havan</h1>
+      <h1 className="text-3xl font-bold mb-6">Vastu Consultation</h1>
 
       <div className="bg-yellow-50 p-6 rounded-lg mb-8">
         <div className="flex flex-col md:flex-row items-center">

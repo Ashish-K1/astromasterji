@@ -1,3 +1,4 @@
+import WhatsAppButton from "../../components/WhatsAppButton"
 import { Link } from "react-router-dom"
 
 export default function Footer() {
@@ -20,7 +21,7 @@ export default function Footer() {
                   About Us
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/privacy-policy" className="text-gray-300 hover:text-white">
                   Privacy Policy
                 </Link>
@@ -29,12 +30,12 @@ export default function Footer() {
                 <Link to="/terms" className="text-gray-300 hover:text-white">
                   Terms & Conditions
                 </Link>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link to="/refund-policy" className="text-gray-300 hover:text-white">
                   Refund Policy
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div>
@@ -52,7 +53,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/book-a-pooja" className="text-gray-300 hover:text-white">
-                  Book a Pooja / Havan
+                Vastu Consultation
                 </Link>
               </li>
             </ul>
@@ -60,7 +61,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Contact Us</h3>
             <ul className="space-y-2 text-sm">
-              <li className="text-gray-300">Email: support@astromasterji.com</li>
+              <li className="text-gray-300">Email: astromasterjee@gmail.com</li>
               <li className="text-gray-300">Phone: +91 95406 96768</li>
               <li className="flex space-x-4 mt-4">
                 <Link to="https://www.facebook.com/astromasterji/?locale=ca_ES" className="text-gray-300 hover:text-white" target="_blank">
@@ -121,6 +122,7 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} Astromasterji. All rights reserved.</p>
         </div>
       </div>
+      <WhatsAppButton/>
     </footer>
   )
 }
