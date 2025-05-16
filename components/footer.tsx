@@ -1,6 +1,7 @@
 // import Link from "next/link"
 
 import { Link } from "@radix-ui/react-navigation-menu";
+import WhatsAppButton from "./WhatsAppButton";
 
 export default function Footer() {
   return (
@@ -54,7 +55,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/book-a-pooja" className="text-gray-300 hover:text-white">
-                  Book a Pooja / Havan
+                Vastu Consultation
                 </Link>
               </li>
             </ul>

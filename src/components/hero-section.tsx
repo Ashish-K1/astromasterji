@@ -4,7 +4,7 @@ import { Input } from "./ui/input"
 
 export default function HeroSection() {
   return (
-    <section className="bg-yellow-400 py-12">
+    <section className="bg-[#ffedd5] py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">
@@ -17,11 +17,11 @@ export default function HeroSection() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
                 <Button className="bg-black hover:bg-gray-800 text-white"><Link to="talk-to-astrologer">Talk to an Astrologer Now</Link></Button>
-                <Button variant="outline" className="bg-white hover:bg-gray-100">
+                {/* <Button variant="outline" className="bg-white hover:bg-gray-100">
                   <Link to="book-a-pooja">
                    Book a Puja/Havan
                   </Link>
-                </Button>
+                </Button> */}
               </div>
               <div className="relative max-w-md">
                 <Input type="text" placeholder="Ask your question..." className="pr-20 h-12 bg-white" />

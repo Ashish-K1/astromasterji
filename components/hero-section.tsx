@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input"
 
 export default function HeroSection() {
   return (
-    <section className="bg-yellow-400 py-12">
+    <section className="bg-[#ffedd5] py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0">

@@ -6,28 +6,28 @@ import { Sun, Calendar, Heart, Flame } from "lucide-react"
 export default function ComplimentaryServices() {
   const services = [
     {
-      icon: <Sun className="h-10 w-10 text-yellow-500" />,
+      icon: <Sun className="h-10 w-10 text-yellow-500 font-sanSerrif" />,
       title: "Today's Horoscope",
       description:
         "Unsure about how your day will unfold? Get free Aries horoscope online prediction from top astrologer. Read your Aries Zodiac Sign Horoscope today!",
       href: "/daily-horoscope",
     },
     {
-      icon: <Calendar className="h-10 w-10 text-yellow-500" />,
+      icon: <Calendar className="h-10 w-10 text-yellow-500 font-sanSerrif" />,
       title: "Free Kundli",
       description:
         "Generate your free online kundli report from Astromasterji. Our Kundli software can help you predict the future for yourself by reading the birth chart.",
       href: "/free-kundli",
     },
     {
-      icon: <Heart className="h-10 w-10 text-yellow-500" />,
+      icon: <Heart className="h-10 w-10 text-yellow-500 font-sanSerrif" />,
       title: "Compatibility",
       description:
         "Confused by love? Remove the doubts & find the sparks! Check the compatibility with your partner using our tool and ignite a love that lasts forever.",
       href: "/compatibility",
     },
     {
-      icon: <Flame className="h-10 w-10 text-yellow-500" />,
+      icon: <Flame className="h-10 w-10 text-yellow-500 font-sanSerrif" />,
       title: "Festival 2024",
       description:
         "Festivals are myriad celebrations, each a unique form of joy. Explore the diverse world of festivals – a realm of celebration.",
@@ -38,7 +38,7 @@ export default function ComplimentaryServices() {
   return (
     <section className="py-12 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold text-center mb-10">COMPLIMENTARY ASTROLOGY SERVICES</h2>
+        <h2 className="text-2xl font-bold text-center mb-10 font-sanSerrif">COMPLIMENTARY ASTROLOGY SERVICES</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <Link href={service.href} key={index}>
