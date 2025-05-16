@@ -1,4 +1,4 @@
-import WhatsAppButton from "../../components/WhatsAppButton"
+import WhatsAppButton from "./WhatsAppButton"
 import { Link } from "react-router-dom"
 
 export default function Footer() {

@@ -15,7 +15,7 @@ export default function Header() {
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-2">
             <div className="relative">
-              <img src="/astromasterji/logo.png" alt="Astromasterji Log
+              <img src="/logo.png" alt="Astromasterji Log
               o" className="h-12 w-12 object-contain" />
             </div>
             <div className="flex flex-col">

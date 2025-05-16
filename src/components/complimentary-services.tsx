@@ -16,14 +16,14 @@ export default function ComplimentaryServices() {
       title: "Compatibility",
       description:
         "Confused by love? Remove the doubts & find the sparks! Check the compatibility with your partner using our tool and ignite a love that lasts forever.",
-      href: "/compatibility",
+      href: "/compatibility-match",
     },
     {
       icon: <Flame className="h-10 w-10 text-yellow-500 font-sanSerrif" />,
       title: "Festival 2025",
       description:
         "Festivals are myriad celebrations, each a unique form of joy. Explore the diverse world of festivals – a realm of celebration.",
-      href: "/festivals",
+      href: "#",
     },
   ]
 

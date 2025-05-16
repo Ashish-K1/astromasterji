@@ -6,8 +6,16 @@ import HeroSection from "../components/hero-section"
 import FeaturedAstrologers from "../components/featured-astrologers"
 import TestimonialSection from "../components/testimonial-section"
 import ComplimentaryServices from "../components/complimentary-services"
+import { useState } from "react"
+import ChatPopup from "../components/chat-popup"
 
 export default function HomePage() {
+  const [isChatOpen, setIsChatOpen] = useState(false)
+
+  const handleChatClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setIsChatOpen(true)
+  }
   return (
     <div className="flex flex-col min-h-screen">
       <HeroSection />
@@ -16,13 +24,15 @@ export default function HomePage() {
       <section className="py-8 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <ServiceCard
-              icon={<MessageCircle className="h-8 w-8 text-pink-500" />}
-              title="Chat with Astrologer"
-              href="/chat-with-astrologer"
-              bgColor="bg-white"
-              iconBgColor="bg-pink-100"
-            />
+            <div onClick={handleChatClick}>
+              <ServiceCard
+                icon={<MessageCircle className="h-8 w-8 text-pink-500" />}
+                title="Chat with Astrologer"
+                href="#"
+                bgColor="bg-white"
+                iconBgColor="bg-pink-100"
+              />
+            </div>
             <ServiceCard
               icon={<Phone className="h-8 w-8 text-teal-500" />}
               title="Talk to Astrologer"
@@ -145,6 +155,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+       {/* Chat Popup */}
+       <ChatPopup isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
 
       {/* Download App */}
       {/* <section className="py-16 bg-yellow-50">
