@@ -1,94 +1,67 @@
-"use client"
-
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Button } from "./ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu"
-import { ChevronDown } from "lucide-react"
+import { cn } from "@/lib/utils" // if using class merge utility
 
 export default function Header() {
-  const [language, setLanguage] = useState("Eng")
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white">
-      <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-6">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="relative">
-              <img src="/logo.png" alt="Astromasterji Log
-              o" className="h-12 w-12 object-contain" />
-            </div>
-            <div className="flex flex-col">
-               <span className="text-xl font-sanSerrif font-bold">AstroMasterji</span>
-               <span className="text-xs font-sanSerrif  font-medium">Your Path to Success</span>
-            </div>
-            
-          </Link>
-        </div>
+    <div className="relative">
+      <header className="sticky top-0 z-50 w-full h-16 bg-white shadow-md flex items-center justify-between px-4">
+        <div className="container flex h-16 items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center gap-6">
+            <Link to="/" className="flex items-center gap-2">
+              <img src="/logo.png" alt="AstroMasterji Logo" className="h-12 w-12 object-contain" />
+              <div className="flex flex-col">
+                <span className="text-xl font-bold font-sanSerrif">AstroMasterji</span>
+                <span className="text-xs font-medium font-sanSerrif">Your Path to Success</span>
+              </div>
+            </Link>
+          </div>
 
-        <nav className="hidden md:flex items-center gap-6">
-          {/* <Link to="/free-kundli" className="text-sm font-medium">
-            Free Kundli
-          </Link> */}
-          <Link to="/about-us" className="text-sm font-medium font-sanSerrif">
-            About Us
-          </Link>
-          <Link to="/kundali-matching" className="text-sm font-medium font-sanSerrif">
-            Kundli Matching
-          </Link>
-          <Link to="/horoscope" className="text-sm font-medium font-sanSerrif">
-            Horoscope
-          </Link>
-          <Link to="/compatibility-match" className="text-sm font-medium font-sanSerrif">
-          Compatibility Match
-          </Link>
-          <Link to="/vastu-consultation" className="text-sm font-medium font-sanSerrif">
-          Vastu
-          </Link>
-          {/* <Button className="bg-yellow-400 hover:bg-yellow-500 text-black">Login</Button> */}
-        </nav>
+          {/* Desktop Menu */}
+          <nav className="hidden md:flex items-center gap-6">
+            <Link to="/about-us" className="text-sm font-medium font-sanSerrif">About Us</Link>
+            <Link to="/kundali-matching" className="text-sm font-medium font-sanSerrif">Kundli Matching</Link>
+            <Link to="/horoscope" className="text-sm font-medium font-sanSerrif">Horoscope</Link>
+            <Link to="/compatibility-match" className="text-sm font-medium font-sanSerrif">Compatibility Match</Link>
+            <Link to="/vastu-consultation" className="text-sm font-medium font-sanSerrif">Vastu</Link>
+          </nav>
 
-        <div className="hidden md:flex items-center gap-4">
-          <Link to="/chat-with-astrologer" className="text-sm font-medium font-sanSerrif">
-            Chat with Astrologer
-          </Link>
-          {/* <Link to="/talk-to-astrologer" className="text-sm font-medium">
-            Talk to Astrologer
-          </Link> */}
-          <Link to="/book-a-pooja" className="text-sm font-medium relative font-sanSerrif">
-          Vastu Consultation
-          </Link>
-          {/* <Link to="/astromall" className="text-sm font-medium">
-            Astromall
-          </Link> */}
-          {/* <Link to="/store" className="text-sm font-medium">
-            Astromasterji Store
-          </Link> */}
-          {/* <Link to="/blog" className="text-sm font-medium">
-            Blog
-          </Link> */}
-        </div>
+          {/* Desktop Extras */}
+          <div className="hidden md:flex items-center gap-4">
+            <Link to="/chat-with-astrologer" className="text-sm font-medium font-sanSerrif">Chat with Astrologer</Link>
+            <Link to="/book-a-pooja" className="text-sm font-medium font-sanSerrif">Vastu Consultation</Link>
+          </div>
 
-        {/* Mobile menu button - would implement a proper mobile menu */}
-        <Button variant="ghost" size="icon" className="md:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-6 w-6"
+          {/* Hamburger Icon */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            <line x1="4" x2="20" y1="12" y2="12" />
-            <line x1="4" x2="20" y1="6" y2="6" />
-            <line x1="4" x2="20" y1="18" y2="18" />
-          </svg>
-        </Button>
-      </div>
-    </header>
+            <div className="w-6 h-0.5 bg-black mb-1" />
+            <div className="w-6 h-0.5 bg-black mb-1" />
+            <div className="w-6 h-0.5 bg-black" />
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile Sliding Menu */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 top-16 bg-white z-40 md:hidden transition-transform duration-300 ease-in-out">
+          <div className="flex flex-col p-6 space-y-4 w-full">
+            <Link to="/about-us" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
+            <Link to="/kundali-matching" onClick={() => setIsMobileMenuOpen(false)}>Kundli Matching</Link>
+            <Link to="/horoscope" onClick={() => setIsMobileMenuOpen(false)}>Horoscope</Link>
+            <Link to="/compatibility-match" onClick={() => setIsMobileMenuOpen(false)}>Compatibility Match</Link>
+            <Link to="/vastu-consultation" onClick={() => setIsMobileMenuOpen(false)}>Vastu</Link>
+            <Link to="/chat-with-astrologer" onClick={() => setIsMobileMenuOpen(false)}>Chat with Astrologer</Link>
+            <Link to="/book-a-pooja" onClick={() => setIsMobileMenuOpen(false)}>Vastu Consultation</Link>
+          </div>
+        </div>
+      )}
+    </div>
   )
 }
