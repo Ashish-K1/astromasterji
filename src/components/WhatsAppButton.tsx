@@ -1,9 +1,16 @@
 import React from 'react';
+const phoneNumber = '9711813396'; // Replace with your number
+const message = 'Hello! I have a query regarding your astrology services. Can you please help me?';
+const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+import { useAppSelector } from "../store/hooks"
 
 const WhatsAppButton: React.FC = () => {
-  const phoneNumber = '9711813396'; // Replace with your number
-  const message = 'Hello! I have a query regarding your astrology services. Can you please help me?';
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const { contacts, loading } = useAppSelector((state) => state.contact)
+
+  const primaryPhoneContact = contacts.find((contact) => contact.isPrimaryPhone)
+  const message = `Hello! ${primaryPhoneContact?.firstName}, I have a query regarding your astrology services. Can you please help me?`;
+  const whatsappUrl = `https://wa.me/${primaryPhoneContact?.phone}?text=${encodeURIComponent(message)}`;
+
 
   return (
     <a

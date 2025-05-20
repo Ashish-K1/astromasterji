@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { useState } from "react"
 import { Card, CardContent } from "../components/ui/card"
 import { MessageCircle, Phone, ShoppingCart, Flame } from "lucide-react"
 import ServiceCard from "../components/service-card"
@@ -6,7 +7,6 @@ import HeroSection from "../components/hero-section"
 import FeaturedAstrologers from "../components/featured-astrologers"
 import TestimonialSection from "../components/testimonial-section"
 import ComplimentaryServices from "../components/complimentary-services"
-import { useState } from "react"
 import ChatPopup from "../components/chat-popup"
 
 export default function HomePage() {

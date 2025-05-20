@@ -11,8 +11,17 @@ import KundaliMatching from "./pages/KundaliMatching"
 import VastuConsultation from "./pages/VastuConsultation"
 import CompatibilityMatch from "./pages/CompatibilityMatch"
 import NotFound from "./pages/NotFound"
+import { useAppDispatch } from "./store/hooks"
+import { fetchContactData } from "./store/slices/contactSlice"
+import { useEffect } from "react"
 
 function App() {
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    // Fetch contact data when the component mounts
+    dispatch(fetchContactData())
+  }, [])
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

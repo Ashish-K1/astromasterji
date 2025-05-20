@@ -3,80 +3,56 @@ import { Input } from "../components/ui/input"
 import { Card, CardContent } from "../components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
-import { Star, MessageCircle, Search, Filter } from "lucide-react"
+import { Star, MessageCircle, Search, Filter, Phone } from "lucide-react"
+import { useAppSelector } from "../store/hooks"
 import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
+
+const SkeletonCard = () => (
+  <div className="animate-pulse bg-white p-4 rounded shadow">
+    <div className="flex gap-4 items-start">
+      <div className="w-20 h-20 bg-gray-200 rounded-full" />
+      <div className="flex-1 space-y-2">
+        <div className="h-4 bg-gray-200 rounded w-3/4" />
+        <div className="h-3 bg-gray-200 rounded w-1/2" />
+        <div className="h-3 bg-gray-200 rounded w-2/3" />
+        <div className="h-3 bg-gray-200 rounded w-1/4" />
+      </div>
+    </div>
+    <div className="mt-4 h-10 bg-gray-200 rounded" />
+  </div>
+);
+
 
 export default function ChatWithAstrologer() {
-  const phoneNumber = '9711813396'; // Replace with your number
-  const message = 'Hello! I have a query regarding your astrology services. Can you please help me?';
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-  const astrologers = [
-    {
-      id: 1,
-      name: "Priyanka Jha",
-      image: "https://anamolyogi.com/assets/images/new/user.webp",
-      specialties: ["Vedic", "Numerology"],
-      experience: "15 years",
-      languages: ["Hindi", "English"],
-      reviews: 1250,
-      price: "₹40/min",
-      status: "Online",
-      waitTime: "5 min",
-    },
-    // {
-    //   id: 2,
-    //   name: "Sunita Sharma",
-    //   image: "https://anamolyogi.com/assets/images/new/user.webp",
-    //   specialties: ["Tarot", "Palmistry"],
-    //   experience: "10 years",
-    //   languages: ["Hindi", "English", "Punjabi"],
-    //   rating: 4.8,
-    //   reviews: 980,
-    //   price: "₹35/min",
-    //   status: "Online",
-    //   waitTime: "10 min",
-    // },
-    // {
-    //   id: 3,
-    //   name: "Dr. Rajesh Joshi",
-    //   image: "https://anamolyogi.com/assets/images/new/user.webp",
-    //   specialties: ["Vastu", "KP Astrology"],
-    //   experience: "20 years",
-    //   languages: ["Hindi", "English", "Marathi"],
-    //   rating: 4.9,
-    //   reviews: 1560,
-    //   price: "₹45/min",
-    //   status: "Online",
-    //   waitTime: "2 min",
-    // },
-    // {
-    //   id: 4,
-    //   name: "Meena Gupta",
-    //   image: "https://anamolyogi.com/assets/images/new/user.webp",
-    //   specialties: ["Tarot", "Numerology"],
-    //   experience: "12 years",
-    //   languages: ["Hindi", "English"],
-    //   rating: 4.7,
-    //   reviews: 890,
-    //   price: "₹38/min",
-    //   status: "Online",
-    //   waitTime: "8 min",
-    // },
-    // {
-    //   id: 5,
-    //   name: "Pandit Sharma",
-    //   image: "https://anamolyogi.com/assets/images/new/user.webp",
-    //   specialties: ["Vedic", "Vastu"],
-    //   experience: "25 years",
-    //   languages: ["Hindi", "English", "Gujarati"],
-    //   rating: 4.9,
-    //   reviews: 2100,
-    //   price: "₹50/min",
-    //   status: "Busy",
-    //   waitTime: "30 min",
-    // },
-  ]
+  const { contacts, loading } = useAppSelector((state) => state.contact)
+  const [isLoading, setIsLoading] = useState(true);
+  const [astrologers, setAstrologers] = useState<any[]>([]);
 
+  useEffect(() => {
+    if(contacts.length === 0) return;
+    const transformApiResponse = (apiResponse: any[]): any[] => {
+      return apiResponse.map((item) => ({
+        id: item.index,
+        name: `${item.firstName} ${item.lastName}`,
+        image: item.profileUrl,
+        specialties: item.jobTitle ? [item.jobTitle] : [],
+        experience: `${item.experience} years`,
+        languages: ["Hindi", "English"], // Default or dynamic if available
+        reviews: Math.floor(Math.random() * 1000 + 500), // Mocked, replace if available
+        price: `₹${item.chatPerMin}/min`,
+        status: "Online", // Set dynamically if available
+        waitTime: "5 min", // Set dynamically if available
+      }));
+    };
+    const transformed = transformApiResponse(contacts);
+    setAstrologers(transformed);
+    setIsLoading(false);
+  },[contacts])
+
+  // Find the primary phone contact
+  const primaryPhoneContact = contacts.find((contact) => contact.isPrimaryPhone)
+  
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">Chat with Astrologer</h1>
@@ -128,9 +104,14 @@ export default function ChatWithAstrologer() {
 
           <TabsContent value="online" className="mt-0">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {astrologers
+              {isLoading
+                ? Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)
+                : astrologers
                 .filter((a) => a.status === "Online")
-                .map((astrologer) => (
+                .map((astrologer) => {
+                  const message = `Hello ${astrologer.name}, I would like to connect with you.`;
+                  const whatsappUrl = `https://wa.me/${astrologer.phone}?text=${encodeURIComponent(message)}`;
+                return (
                   <Card key={astrologer.id} className="overflow-hidden">
                     <CardContent className="p-0">
                       <div className="p-4 border-b">
@@ -177,7 +158,7 @@ export default function ChatWithAstrologer() {
                       </Link>
                     </CardContent>
                   </Card>
-                ))}
+                )})}
             </div>
           </TabsContent>
 

@@ -1,7 +1,15 @@
 import WhatsAppButton from "./WhatsAppButton"
 import { Link } from "react-router-dom"
+import { useAppSelector } from "../store/hooks"
+import { Phone } from "lucide-react"
 
 export default function Footer() {
+  const { contacts, loading } = useAppSelector((state) => {
+    return state.contact
+})
+
+  // Find the primary phone contact
+  const primaryPhoneContact = contacts.find((contact) => contact.isPrimaryPhone)
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-4">
@@ -62,7 +70,13 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">Contact Us</h3>
             <ul className="space-y-2 text-sm">
               <li className="text-gray-300">Email: astromasterjee@gmail.com</li>
-              <li className="text-gray-300">Phone: +91 95406 96768</li>
+              {primaryPhoneContact ? (
+                <li className="text-gray-300 flex items-center">
+                  {` Phone: +91 ${primaryPhoneContact.phone}`}
+                </li>
+              ) : (
+                <li className="text-gray-300">Phone: +91 9711813396</li>
+              )}
               <li className="flex space-x-4 mt-4">
                 <Link to="https://www.facebook.com/astromasterji/?locale=ca_ES" className="text-gray-300 hover:text-white" target="_blank">
                   <svg
