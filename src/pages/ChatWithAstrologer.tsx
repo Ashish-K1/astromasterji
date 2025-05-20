@@ -41,8 +41,9 @@ export default function ChatWithAstrologer() {
         languages: ["Hindi", "English"], // Default or dynamic if available
         reviews: Math.floor(Math.random() * 1000 + 500), // Mocked, replace if available
         price: `₹${item.chatPerMin}/min`,
-        status: "Online", // Set dynamically if available
-        waitTime: "5 min", // Set dynamically if available
+        phone: item.phone,
+        status: "Online",
+        waitTime: "5 min",
       }));
     };
     const transformed = transformApiResponse(contacts);
@@ -109,8 +110,8 @@ export default function ChatWithAstrologer() {
                 : astrologers
                 .filter((a) => a.status === "Online")
                 .map((astrologer) => {
-                  const message = `Hello ${astrologer.name}, I would like to connect with you.`;
-                  const whatsappUrl = `https://wa.me/${astrologer.phone}?text=${encodeURIComponent(message)}`;
+                  const message = `Hello! ${astrologer?.name}, I have a query regarding your astrology services. Can you please help me?`;
+                  const whatsappUrl = `https://wa.me/${astrologer?.phone}?text=${encodeURIComponent(message)}`;
                 return (
                   <Card key={astrologer.id} className="overflow-hidden">
                     <CardContent className="p-0">
