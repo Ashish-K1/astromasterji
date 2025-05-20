@@ -27,13 +27,12 @@ export default function Header() {
             <Link to="/kundali-matching" className="text-sm font-medium font-sanSerrif">Kundli Matching</Link>
             <Link to="/horoscope" className="text-sm font-medium font-sanSerrif">Horoscope</Link>
             <Link to="/compatibility-match" className="text-sm font-medium font-sanSerrif">Compatibility Match</Link>
-            <Link to="/vastu-consultation" className="text-sm font-medium font-sanSerrif">Vastu</Link>
+            <Link to="/vastu-consultation" className="text-sm font-medium font-sanSerrif">Vastu Consultation</Link>
           </nav>
 
           {/* Desktop Extras */}
           <div className="hidden md:flex items-center gap-4">
             <Link to="/chat-with-astrologer" className="text-sm font-medium font-sanSerrif">Chat with Astrologer</Link>
-            <Link to="/book-a-pooja" className="text-sm font-medium font-sanSerrif">Vastu Consultation</Link>
           </div>
 
           {/* Hamburger Icon */}
@@ -56,9 +55,8 @@ export default function Header() {
             <Link to="/kundali-matching" onClick={() => setIsMobileMenuOpen(false)}>Kundli Matching</Link>
             <Link to="/horoscope" onClick={() => setIsMobileMenuOpen(false)}>Horoscope</Link>
             <Link to="/compatibility-match" onClick={() => setIsMobileMenuOpen(false)}>Compatibility Match</Link>
-            <Link to="/vastu-consultation" onClick={() => setIsMobileMenuOpen(false)}>Vastu</Link>
+            <Link to="/vastu-consultation" onClick={() => setIsMobileMenuOpen(false)}>Vastu Consultation</Link>
             <Link to="/chat-with-astrologer" onClick={() => setIsMobileMenuOpen(false)}>Chat with Astrologer</Link>
-            <Link to="/book-a-pooja" onClick={() => setIsMobileMenuOpen(false)}>Vastu Consultation</Link>
           </div>
         </div>
       )}

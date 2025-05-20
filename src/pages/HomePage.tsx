@@ -43,7 +43,7 @@ export default function HomePage() {
             <ServiceCard
               icon={<Flame className="h-8 w-8 text-orange-500" />}
               title="Vastu Consultation"
-              href="/book-a-pooja"
+              href="/vastu-consultation"
               bgColor="bg-white"
               iconBgColor="bg-orange-100"
             />

@@ -26,7 +26,7 @@ export default function ChatPopup({ isOpen, onClose }: ChatPopupProps) {
   const questions = [
     "How may I help you?",
     "What is your query?",
-    "Provide your contact details",
+    "Can you please provide your email I’d and mobile number",
     "Thanks for trusting us, our team will get back to you.",
   ]
 
