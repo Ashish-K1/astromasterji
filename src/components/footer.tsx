@@ -69,7 +69,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Contact Us</h3>
             <ul className="space-y-2 text-sm">
-              <li className="text-gray-300">Email: astromasterjee@gmail.com</li>
+              <li className="text-gray-300">Email: info@astromasterji.com</li>
               {primaryPhoneContact ? (
                 <li className="text-gray-300 flex items-center">
                   {` Phone: +91 ${primaryPhoneContact.phone}`}
