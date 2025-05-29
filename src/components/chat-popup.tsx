@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useRef, useEffect } from "react"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
@@ -21,6 +20,7 @@ export default function ChatPopup({ isOpen, onClose }: ChatPopupProps) {
   const [messages, setMessages] = useState<Message[]>([{ text: "How may I help you?", isUser: false }])
   const [input, setInput] = useState("")
   const [currentStep, setCurrentStep] = useState(0)
+  const [answers, setAnswers] = useState<string[]>([])  // store all user answers
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const questions = [
@@ -30,18 +30,60 @@ export default function ChatPopup({ isOpen, onClose }: ChatPopupProps) {
     "Thanks for trusting us, our team will get back to you.",
   ]
 
+  const sendEmail = async (htmlMessage: string) => {
+    try {
+      await fetch("https://astromasterji.com/send-email.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: htmlMessage,
+          subject: "New Chat Message",
+          name: "Chatbot User"
+        })
+      })
+    } catch (error) {
+      console.error("Failed to send email:", error)
+    }
+  }
+
   const handleSendMessage = () => {
     if (input.trim() === "") return
 
-    // Add user message
-    setMessages((prev) => [...prev, { text: input, isUser: true }])
+    const userMessage = input
+    setMessages((prev) => [...prev, { text: userMessage, isUser: true }])
+    setAnswers((prev) => {
+      const newAnswers = [...prev]
+      newAnswers[currentStep] = userMessage // Save answer for current question
+      return newAnswers
+    })
     setInput("")
 
-    // Move to next step
     if (currentStep < questions.length - 1) {
       setTimeout(() => {
-        setCurrentStep(currentStep + 1)
-        setMessages((prev) => [...prev, { text: questions[currentStep + 1], isUser: false }])
+        const nextStep = currentStep + 1
+        const nextBotMessage = questions[nextStep]
+
+        setCurrentStep(nextStep)
+        setMessages((prev) => [...prev, { text: nextBotMessage, isUser: false }])
+
+        // If it's the last step, trigger email with formatted Q&A
+        if (nextStep === questions.length - 1) {
+          const qaPairs = questions
+            .slice(0, questions.length - 1) // exclude last thank you message
+            .map((q, i) => {
+              const answer = answers[i] ?? (i === currentStep ? userMessage : "")
+              return `
+                <p style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.4; margin-bottom: 12px;">
+                  <b style="color: #333;">Q: ${q}</b><br/>
+                  A: ${answer}
+                </p>`
+            })
+            .join("")
+
+          sendEmail(qaPairs)
+        }
       }, 500)
     }
   }
@@ -53,7 +95,6 @@ export default function ChatPopup({ isOpen, onClose }: ChatPopupProps) {
     }
   }
 
-  // Scroll to bottom when messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages])
@@ -93,7 +134,7 @@ export default function ChatPopup({ isOpen, onClose }: ChatPopupProps) {
         </div>
       </div>
 
-      {/* Input area - only show if not at the final step */}
+      {/* Input area */}
       {currentStep < questions.length - 1 && (
         <div className="border-t border-gray-200 p-3 flex">
           <Input

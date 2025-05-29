@@ -29,7 +29,7 @@ const styles: { button: React.CSSProperties; icon: React.CSSProperties } = {
   button: {
     position: 'fixed',
     bottom: '20px',
-    right: '20px',
+    left: '20px',
     backgroundColor: '#25D366',
     borderRadius: '50%',
     width: '60px',
