@@ -2,51 +2,21 @@ import { Link } from "react-router-dom"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { useEffect, useState } from "react"
-
-interface BannerDetail {
-  id: number
-  bannerUrl: string
-  bannerName: string
-}
+import Carousel from "./carousel"
+import { useAppDispatch } from "../store/hooks"
+import { fetchBannerData } from "../store/slices/bannerSlice"
 
 export default function HeroSection() {
-  const [bannerData, setBannerData] = useState<BannerDetail[]>([])
-  const [current, setCurrent] = useState(0)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    fetchBannerData()
-  }, [])
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext()
-    }, 1000) // 1 seconds
-  
-    return () => clearInterval(interval)
-  }, [bannerData])
-
-  const fetchBannerData = async () => {
-    try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbzC8Yc26vdMePGzztb1eJboEMILaYgeEkGVSOyhmY3J42n4KcsRkeF0JnGRTwXUyWDw/exec")
-      const jsonData = await response.json()
-      setBannerData(jsonData)
-    } catch (error) {
-      console.error("Error fetching banners:", error)
-    }
-  }
-
-  const handleNext = () => {
-    setCurrent((current) => (current + 1) % bannerData.length)
-  }
-
-  const handlePrev = () => {
-    setCurrent((current) => (current - 1 + bannerData.length) % bannerData.length)
-  }
+    dispatch(fetchBannerData())
+  }, [dispatch])
 
   return (
     <section className="bg-[#ffedd5] py-12">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center">
+      <div className="container mx-auto px-10">
+        <div className="flex flex-col md:flex-row items-flex-start">
           {/* Left Content */}
           <div className="md:w-1/2 mb-8 md:mb-0">
             <div className="max-w-lg">
@@ -71,42 +41,7 @@ export default function HeroSection() {
           </div>
           {/* Right Carousel */}
           <div className="md:w-1/2 flex justify-center">
-            <div className="relative w-full max-w-md h-72 overflow-hidden">
-              {bannerData.length > 0 ? (
-                bannerData.map((banner, index) => (
-                  <img
-                    key={banner.id}
-                    src={banner.bannerUrl}
-                    alt={banner.bannerName}
-                    className={`absolute w-full h-full object-cover rounded-lg transition-opacity duration-500 ${
-                      index === current ? "opacity-100 z-10" : "opacity-0 z-0"
-                    }`}
-                  />
-                ))
-              ) : (
-                <div className="flex items-center justify-center w-full h-full bg-gray-200 rounded-lg">
-                  <p className="text-gray-600">Loading banners...</p>
-                </div>
-              )}
-
-              {/* Navigation Buttons */}
-              {bannerData.length > 1 && (
-                <>
-                  <button
-                    onClick={handlePrev}
-                    className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white text-black px-2 py-1 rounded-full shadow"
-                  >
-                    ◀
-                  </button>
-                  <button
-                    onClick={handleNext}
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white text-black px-2 py-1 rounded-full shadow"
-                  >
-                    ▶
-                  </button>
-                </>
-              )}
-            </div>
+            <Carousel />
           </div>
         </div>
       </div>

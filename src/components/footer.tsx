@@ -11,7 +11,7 @@ export default function Footer() {
   // Find the primary phone contact
   const primaryPhoneContact = contacts.find((contact) => contact.isPrimaryPhone)
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 text-white py-12 px-6">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
